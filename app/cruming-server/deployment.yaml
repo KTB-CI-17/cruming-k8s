@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cruming-server
+  namespace: cruming-server
   labels:
     app: cruming-server
 spec:
