@@ -1,0 +1,32 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: example-ingress
+  namespace: test-app
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  labels:
+    app: example-ingress
+spec:
+  ingressClassName: nginx # Ingress Controller 이름 확인
+  rules:
+    - host: www.cruming.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apache-app
+                port:
+                  number: 80
+    - host: cruming.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: apache-app
+                port:
+                  number: 80
