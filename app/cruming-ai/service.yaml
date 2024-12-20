@@ -1,0 +1,14 @@
+# app/cruming-ai/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cruming-ai-service
+  namespace: cruming-ai  # 네임스페이스 설정
+spec:
+  selector:
+    app: cruming-ai
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
+  type: ClusterIP
