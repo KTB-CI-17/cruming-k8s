@@ -1,0 +1,27 @@
+elasticsearchHosts: "https://elasticsearch-master.efk.svc:9200"  # SAN에 포함된 호스트명으로 변경
+
+elasticsearch:
+  ssl:
+    certificateAuthorities: "/usr/share/kibana/config/certs/ca.crt"  # CA 인증서 경로 설정
+
+resources:
+  limits:
+    memory: 1Gi
+    cpu: 1
+  requests:
+    memory: 512Mi
+    cpu: 500m
+
+service:
+  port: 5601
+
+# 볼륨 마운트 및 볼륨 정의 추가
+volumeMounts:
+  - name: elasticsearch-ca
+    mountPath: /usr/share/kibana/config/certs
+    readOnly: true
+
+volumes:
+  - name: elasticsearch-ca
+    secret:
+      secretName: kibana-elasticsearch-ca
