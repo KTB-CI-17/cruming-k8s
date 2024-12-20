@@ -1,0 +1,8 @@
+clusterName: kubernetes
+serviceAccount:
+  create: false
+  name: aws-load-balancer-controller
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::381491842895:role/KtbCrumingAWSLoadBalancerControllerRole
+region: ap-northeast-2
+vpcId: vpc-0394d8a526ef42f91
