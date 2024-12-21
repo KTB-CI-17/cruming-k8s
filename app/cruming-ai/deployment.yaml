@@ -18,6 +18,11 @@ spec:
     spec:
       nodeSelector: # 특정 노드에만 배포
         node-role.kubernetes.io/ai: "true"
+      tolerations:
+        - key: "dedicated"                 # Toleration 설정
+          operator: "Equal"
+          value: "ai"
+          effect: "NoSchedule"
       containers:
         - name: cruming-ai
           image: minyubo/cruming-ai:latest  # Jenkins가 이 태그를 업데이트할 예정
