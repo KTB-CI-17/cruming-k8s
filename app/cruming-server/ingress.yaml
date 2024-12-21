@@ -1,0 +1,24 @@
+# app/cruming-server/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cruming-server-ingress
+  namespace: cruming-server
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+    - host: cruming.site  # 실제 도메인으로 변경
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cruming-server-service
+                port:
+                  number: 80
+  tls:
+    - hosts:
+        - cruming.site
+      secretName: cruming-tls  # cert-manager가 생성한 TLS Secret 이름
