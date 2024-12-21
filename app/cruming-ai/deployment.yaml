@@ -3,11 +3,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cruming-ai
-  namespace: cruming-server
+  namespace: cruming-ai
   labels:
     app: cruming-ai
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: cruming-ai
@@ -16,6 +16,8 @@ spec:
       labels:
         app: cruming-ai
     spec:
+      nodeSelector: # 특정 노드에만 배포
+        node-role.kubernetes.io/ai: "true"
       containers:
         - name: cruming-ai
           image: minyubo/cruming-ai:latest  # Jenkins가 이 태그를 업데이트할 예정
