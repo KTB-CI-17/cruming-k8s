@@ -1,0 +1,31 @@
+# app/cruming-web/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cruming-web-ingress
+  namespace: cruming-web  # 프론트엔드가 배포된 네임스페이스
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: cruming.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cruming-web-service  # 프론트엔드의 Service 이름
+                port:
+                  number: 80  # Service의 포트 번호
+    - host: www.cruming.site
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: cruming-web-service  # 프론트엔드의 Service 이름
+                port:
+                  number: 80  # Service의 포트 번호
