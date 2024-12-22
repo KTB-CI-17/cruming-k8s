@@ -1,0 +1,39 @@
+# apps/cruming-server/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cruming-server
+  namespace: cruming-server
+  labels:
+    app: cruming-server
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: cruming-server
+  template:
+    metadata:
+      labels:
+        app: cruming-server
+    spec:
+      containers:
+        - name: cruming-server
+          image: minyubo/cruming-server:6
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: cruming-server-secret  # 생성된 Secret의 이름
+#---
+#apiVersion: v1
+#kind: Service
+#metadata:
+#  name: cruming-server-service
+#spec:
+#  selector:
+#    app: cruming-server
+#  ports:
+#    - protocol: TCP
+#      port: 80
+#      targetPort: 8080
+#  type: ClusterIP
