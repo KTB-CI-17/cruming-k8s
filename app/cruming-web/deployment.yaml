@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: cruming-web
-          image: minyubo/cruming-web:4
+          image: minyubo/cruming-web:5
           ports:
             - containerPort: 80
