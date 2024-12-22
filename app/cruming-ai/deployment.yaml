@@ -27,7 +27,7 @@ spec:
         - name: cruming-ai
           image: minyubo/cruming-ai:3
           ports:
-            - containerPort: 5000
+            - containerPort: 8000
 #---
 #apiVersion: v1
 #kind: Service
