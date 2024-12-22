@@ -25,7 +25,7 @@ spec:
           effect: "NoSchedule"
       containers:
         - name: cruming-ai
-          image: minyubo/cruming-ai:latest  # Jenkins가 이 태그를 업데이트할 예정
+          image: minyubo/cruming-ai:3
           ports:
             - containerPort: 8000
 #---
