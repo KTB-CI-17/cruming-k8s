@@ -27,7 +27,7 @@ spec:
         - name: cruming-ai
           image: minyubo/cruming-ai:latest  # Jenkins가 이 태그를 업데이트할 예정
           ports:
-            - containerPort: 5000
+            - containerPort: 8000
 #---
 #apiVersion: v1
 #kind: Service
