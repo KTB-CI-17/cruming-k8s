@@ -1,11 +1,12 @@
+# app/cruming-server/service.yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-backend-service
-  namespace: app-backend
+  name: cruming-server-service
+  namespace: cruming-server  # 네임스페이스 설정
 spec:
   selector:
-    app: app-backend
+    app: cruming-server
   ports:
     - protocol: TCP
       port: 8080
