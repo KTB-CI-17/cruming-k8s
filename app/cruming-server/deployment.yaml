@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: cruming-server
-          image: minyubo/cruming-server:6
+          image: minyubo/cruming-server:11
           ports:
             - containerPort: 8080
           envFrom:

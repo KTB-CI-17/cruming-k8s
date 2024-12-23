@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: cruming-web
-          image: minyubo/cruming-web:latest  # Jenkins가 이 태그를 업데이트할 예정
+          image: minyubo/cruming-web:23
           ports:
             - containerPort: 80
