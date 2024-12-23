@@ -15,7 +15,7 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: cruming-web-service
+                name: cruming-server-service
                 port:
                   number: 8080
     - host: www.cruming.site
@@ -25,6 +25,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: cruming-web-service
+                name: cruming-server-service
                 port:
                   number: 8080
