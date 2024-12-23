@@ -6,6 +6,7 @@ metadata:
   namespace: cruming-web  # 프론트엔드가 배포된 네임스페이스
   annotations:
     nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
 #    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   ingressClassName: nginx
