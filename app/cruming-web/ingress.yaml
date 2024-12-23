@@ -19,13 +19,6 @@ spec:
                 name: cruming-web-service  # 프론트엔드의 Service 이름
                 port:
                   number: 80  # Service의 포트 번호
-          - path: /api/v1  # 백엔드 API 경로
-            pathType: Prefix
-            backend:
-              service:
-                name: cruming-server-service  # 백엔드의 Service 이름
-                port:
-                  number: 8080  # 백엔드의 Service 포트
     - host: www.cruming.site
       http:
         paths:
@@ -36,10 +29,3 @@ spec:
                 name: cruming-web-service  # 프론트엔드의 Service 이름
                 port:
                   number: 80  # Service의 포트 번호
-          - path: /api/v1  # 백엔드 API 경로
-            pathType: Prefix
-            backend:
-              service:
-                name: cruming-server-service  # 백엔드의 Service 이름
-                port:
-                  number: 8080  # 백엔드의 Service 포트
