@@ -26,6 +26,13 @@ spec:
                 name: cruming-server-service  # 백엔드의 Service 이름
                 port:
                   number: 8080  # 백엔드의 Service 포트
+          - path: /ai/
+            pathType: Prefix
+            backend:
+              service:
+                name: cruming-ai-service  # AI 서버 서비스 이름
+                port:
+                  number: 8000
     - host: www.cruming.site
       http:
         paths:
@@ -43,3 +50,10 @@ spec:
                 name: cruming-server-service  # 백엔드의 Service 이름
                 port:
                   number: 8080  # 백엔드의 Service 포트
+          - path: /ai/
+            pathType: Prefix
+            backend:
+              service:
+                name: cruming-ai-service  # AI 서버 서비스 이름
+                port:
+                  number: 8000
